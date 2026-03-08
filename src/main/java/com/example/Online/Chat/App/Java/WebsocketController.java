@@ -31,7 +31,7 @@ public class WebsocketController {
         System.out.println(username+" connected");
     }
 
-    @MessageMapping("/connect")
+    @MessageMapping("/disconnect")
     public void disconnectUser(String username){
         sessionManager.removeUsername(username);
         sessionManager.broadcastActiveUsernames();

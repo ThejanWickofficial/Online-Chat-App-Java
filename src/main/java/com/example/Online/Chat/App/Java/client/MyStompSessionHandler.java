@@ -20,6 +20,8 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
     @Override
     public void afterConnected(StompSession session, StompHeaders connectHeaders){
         System.out.println("Client Connected");
+        session.send("/app/connect", username);
+
         session.subscribe("/topic/message", new StompFrameHandler() {
             @Override
             public Type getPayloadType(StompHeaders headers) {
