@@ -28,5 +28,7 @@ public class MyStompClient {
 
         StompSessionHandler sessionHandler = new MyStompSessionHandler(username);
         String url = "ws://localhost:8080/ws";
+
+        session = stompClient.connectAsync(url, sessionHandler).get();
     }
 }
