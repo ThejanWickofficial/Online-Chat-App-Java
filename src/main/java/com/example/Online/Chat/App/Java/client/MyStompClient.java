@@ -2,6 +2,7 @@ package com.example.Online.Chat.App.Java.client;
 
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompSession;
+import org.springframework.messaging.simp.stomp.StompSessionHandler;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
@@ -24,5 +25,8 @@ public class MyStompClient {
         SockJsClient sockJsClient = new SockJsClient(tarnsports);
         WebSocketStompClient stompClient = new WebSocketStompClient(sockJsClient);
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
+
+        StompSessionHandler sessionHandler = new MyStompSessionHandler(username);
+        String url = "ws://localhost:8080/ws";
     }
 }
