@@ -22,4 +22,9 @@ public class WebSocketSessionManager {
     public void removeUsername(String username){
         activeUserNames.remove(username);
     }
+
+    public void broadcastActiveUsernames(){
+        messagingTemplate.convertAndSend("/topic/users", activeUserNames);
+        System.out.println("Broadcasting active users to /topic/users"+ activeUserNames);
+    }
 }
