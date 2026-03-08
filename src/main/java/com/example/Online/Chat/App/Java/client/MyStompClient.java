@@ -31,5 +31,14 @@ public class MyStompClient {
         String url = "ws://localhost:8080/ws";
 
         session = stompClient.connectAsync(url, sessionHandler).get();
+
+        public void sendMessage(Message message){
+            try{
+                session.send("/app/message",message);
+                System.out.println("Message Sent: "+ message.getMessage());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }
