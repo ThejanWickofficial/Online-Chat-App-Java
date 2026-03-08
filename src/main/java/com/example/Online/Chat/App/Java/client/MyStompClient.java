@@ -11,12 +11,13 @@ import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class MyStompClient {
     private StompSession session;
     private String username;
 
-    public MyStompClient(String username){
+    public MyStompClient(String username) throws ExecutionException, InterruptedException {
         this.username = username;
 
         List<Transport> tarnsports = new ArrayList<>();

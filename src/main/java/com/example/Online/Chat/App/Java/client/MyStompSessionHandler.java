@@ -1,7 +1,8 @@
 package com.example.Online.Chat.App.Java.client;
 
 import org.jspecify.annotations.Nullable;
-import org.springframework.messaging.Message;
+//import org.springframework.messaging.Message;
+import com.example.Online.Chat.App.Java.Message;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
@@ -18,6 +19,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
     @Override
     public void afterConnected(StompSession session, StompHeaders connectHeaders){
+        System.out.println("Client Connected");
         session.subscribe("/topic/message", new StompFrameHandler() {
             @Override
             public Type getPayloadType(StompHeaders headers) {
@@ -39,6 +41,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
             }
         });
+        System.out.println("Client subscribe to /topic/messages");
     }
 
     @Override
