@@ -1,9 +1,11 @@
 package com.example.Online.Chat.App.Java.client;
 
+import com.example.Online.Chat.App.Java.Message;
 import java.util.concurrent.ExecutionException;
 
 public class ClientGUI {
     public static void main(String args[]) throws ExecutionException, InterruptedException {
         MyStompClient myStompClient =  new MyStompClient("Taptap");
+        myStompClient.sendMessage(new Message("Taptap"));
     }
 }

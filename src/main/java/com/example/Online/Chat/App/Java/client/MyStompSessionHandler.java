@@ -41,7 +41,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
             }
         });
-        System.out.println("Client subscribe to /topic/messages");
+        System.out.println("Client subscribe to /topic/message");
     }
 
     @Override

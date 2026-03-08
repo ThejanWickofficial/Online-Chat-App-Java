@@ -1,5 +1,6 @@
 package com.example.Online.Chat.App.Java.client;
 
+import com.example.Online.Chat.App.Java.Message;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
@@ -31,14 +32,15 @@ public class MyStompClient {
         String url = "ws://localhost:8080/ws";
 
         session = stompClient.connectAsync(url, sessionHandler).get();
+    }
 
-        public void sendMessage(Message message){
-            try{
-                session.send("/app/message",message);
-                System.out.println("Message Sent: "+ message.getMessage());
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+    public void sendMessage(Message message){
+        try{
+            session.send("/app/message",message);
+            System.out.println("Message Sent: "+ message.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
+
 }
