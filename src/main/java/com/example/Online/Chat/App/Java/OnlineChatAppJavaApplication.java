@@ -8,6 +8,7 @@ public class OnlineChatAppJavaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineChatAppJavaApplication.class, args);
+
 	}
 
 }
