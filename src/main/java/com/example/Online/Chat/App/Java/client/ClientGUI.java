@@ -1,13 +1,13 @@
 package com.example.Online.Chat.App.Java.client;
 
-import com.example.Online.Chat.App.Java.Message;
-
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.concurrent.ExecutionException;
 
 public class ClientGUI extends JFrame {
+    private JPanel connectedUsersPanel;
+
     public ClientGUI(String username){
         super("User: "+ username);
 
@@ -30,6 +30,20 @@ public class ClientGUI extends JFrame {
     }
 
     private void addGuiComponents(){
+        addConnectedUsersComponents();
+    }
 
+    private void addConnectedUsersComponents(){
+        connectedUsersPanel = new JPanel();
+        connectedUsersPanel.setLayout(new BoxLayout(connectedUsersPanel, BoxLayout.Y_AXIS));
+        connectedUsersPanel.setBackground(Utilities.SECONDARY_COLOR);
+        connectedUsersPanel.setPreferredSize(new Dimension(134,getHeight()));
+
+        JLabel connectedUsersLabel = new JLabel("Connected Users: ");
+        connectedUsersLabel.setFont(new Font("Inter", Font.BOLD,8));
+        connectedUsersLabel.setForeground(Utilities.TEXT_COLOR);
+        connectedUsersPanel.add(connectedUsersLabel);
+
+        add(connectedUsersPanel,BorderLayout.WEST);
     }
 }
