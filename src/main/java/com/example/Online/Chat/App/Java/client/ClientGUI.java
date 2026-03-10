@@ -11,7 +11,7 @@ public class ClientGUI extends JFrame {
     public ClientGUI(String username){
         super("User: "+ username);
 
-        setSize(406,228);
+        setSize(550,344);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -40,7 +40,7 @@ public class ClientGUI extends JFrame {
         connectedUsersPanel.setPreferredSize(new Dimension(134,getHeight()));
 
         JLabel connectedUsersLabel = new JLabel("Connected Users: ");
-        connectedUsersLabel.setFont(new Font("Inter", Font.BOLD,8));
+        connectedUsersLabel.setFont(new Font("Inter", Font.BOLD,10));
         connectedUsersLabel.setForeground(Utilities.TEXT_COLOR);
         connectedUsersPanel.add(connectedUsersLabel);
 
